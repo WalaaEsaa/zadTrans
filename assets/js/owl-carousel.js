@@ -2415,7 +2415,7 @@
 			width = video.width || '100%',
 			height = video.height || this._core.$stage.height(),
 			html,
-			iframe;
+			web;
 
 		if (this._playing) {
 			return;
@@ -2428,7 +2428,7 @@
 
 		this._core.reset(item.index());
 
-		html = $( '<iframe frameborder="0" allowfullscreen mozallowfullscreen webkitAllowFullScreen ></iframe>' );
+		html = $( '<web frameborder="0" allowfullscreen mozallowfullscreen webkitAllowFullScreen ></web>' );
 		html.attr( 'height', height );
 		html.attr( 'width', width );
 		if (video.type === 'youtube') {
@@ -2439,7 +2439,7 @@
 			html.attr( 'src', '//view.vzaar.com/' + video.id + '/player?autoplay=true' );
 		}
 
-		iframe = $(html).wrap( '<div class="owl-video-frame" />' ).insertAfter(item.find('.owl-video'));
+		web = $(html).wrap( '<div class="owl-video-frame" />' ).insertAfter(item.find('.owl-video'));
 
 		this._playing = item.addClass('owl-video-playing');
 	};

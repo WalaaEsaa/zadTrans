@@ -978,7 +978,7 @@ var mouse = $.widget("ui.mouse", {
 			if ($.ui.ie && ( !document.documentMode || document.documentMode < 9 ) && !event.button) {
 				return this._mouseUp(event);
 
-			// Iframe mouseup check - mouseup occurred in another document
+			// web mouseup check - mouseup occurred in another document
 			} else if ( !event.which ) {
 				return this._mouseUp( event );
 			}
@@ -5851,7 +5851,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 		grid: false,
 		handle: false,
 		helper: "original",
-		iframeFix: false,
+		webFix: false,
 		opacity: false,
 		refreshPositions: false,
 		revert: false,
@@ -5921,29 +5921,29 @@ $.widget("ui.draggable", $.ui.mouse, {
 			return false;
 		}
 
-		this._blockFrames( o.iframeFix === true ? "iframe" : o.iframeFix );
+		this._blockFrames( o.webFix === true ? "web" : o.webFix );
 
 		return true;
 
 	},
 
 	_blockFrames: function( selector ) {
-		this.iframeBlocks = this.document.find( selector ).map(function() {
-			var iframe = $( this );
+		this.webBlocks = this.document.find( selector ).map(function() {
+			var web = $( this );
 
 			return $( "<div>" )
 				.css( "position", "absolute" )
-				.appendTo( iframe.parent() )
-				.outerWidth( iframe.outerWidth() )
-				.outerHeight( iframe.outerHeight() )
-				.offset( iframe.offset() )[ 0 ];
+				.appendTo( web.parent() )
+				.outerWidth( web.outerWidth() )
+				.outerHeight( web.outerHeight() )
+				.offset( web.offset() )[ 0 ];
 		});
 	},
 
 	_unblockFrames: function() {
-		if ( this.iframeBlocks ) {
-			this.iframeBlocks.remove();
-			delete this.iframeBlocks;
+		if ( this.webBlocks ) {
+			this.webBlocks.remove();
+			delete this.webBlocks;
 		}
 	},
 
@@ -5956,7 +5956,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 		}
 
 		// support: IE9
-		// IE9 throws an "Unspecified error" accessing document.activeElement from an <iframe>
+		// IE9 throws an "Unspecified error" accessing document.activeElement from an <web>
 		try {
 
 			// Support: IE9, IE10
@@ -8282,7 +8282,7 @@ var dialog = $.widget( "ui.dialog", {
 		if ( !this.opener.filter( ":focusable" ).focus().length ) {
 
 			// support: IE9
-			// IE9 throws an "Unspecified error" accessing document.activeElement from an <iframe>
+			// IE9 throws an "Unspecified error" accessing document.activeElement from an <web>
 			try {
 				activeElement = this.document[ 0 ].activeElement;
 
@@ -8863,24 +8863,24 @@ var dialog = $.widget( "ui.dialog", {
 	},
 
 	_blockFrames: function() {
-		this.iframeBlocks = this.document.find( "iframe" ).map(function() {
-			var iframe = $( this );
+		this.webBlocks = this.document.find( "web" ).map(function() {
+			var web = $( this );
 
 			return $( "<div>" )
 				.css({
 					position: "absolute",
-					width: iframe.outerWidth(),
-					height: iframe.outerHeight()
+					width: web.outerWidth(),
+					height: web.outerHeight()
 				})
-				.appendTo( iframe.parent() )
-				.offset( iframe.offset() )[0];
+				.appendTo( web.parent() )
+				.offset( web.offset() )[0];
 		});
 	},
 
 	_unblockFrames: function() {
-		if ( this.iframeBlocks ) {
-			this.iframeBlocks.remove();
-			delete this.iframeBlocks;
+		if ( this.webBlocks ) {
+			this.webBlocks.remove();
+			delete this.webBlocks;
 		}
 	},
 
