@@ -93,7 +93,7 @@ ul, li {
   list-style: none;
 }
 
-header, nav, section, article, aside, footer, hgroup {
+header, nav, section, article, aside, footer, hgroup, iframe {
   display: block;
 }
 
@@ -364,6 +364,10 @@ header
   visibility: hidden;
   z-index: -1;
   transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+.header-area .main-nav .nav li.submenu ul:hover {
+  z-index: 77777;
+
 }
 
 .header-area .main-nav .nav li.submenu ul li {
@@ -905,7 +909,8 @@ About
 .about-us {
   margin-top: 0px;
   padding-top: 200px;
-  z-index: 3;
+  z-index: -3;
+  
    
  
 }
@@ -1158,7 +1163,7 @@ contact
   margin-bottom: 40px;
 }
 
-.contact-us #map web {
+.contact-us #map iframe {
   border-radius: 23px;
   position: relative;
   z-index: 2;
@@ -1391,7 +1396,7 @@ responsive
     transform: translateX(0px);
     transform: translateY(-50px);
   }
-  .our-videos .nacc .thumb web {
+  .our-videos .nacc .thumb iframe {
     height: 500px;
   }
   form#contact {

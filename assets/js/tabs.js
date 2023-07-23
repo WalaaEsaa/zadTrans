@@ -978,7 +978,7 @@ var mouse = $.widget("ui.mouse", {
 			if ($.ui.ie && ( !document.documentMode || document.documentMode < 9 ) && !event.button) {
 				return this._mouseUp(event);
 
-			// web mouseup check - mouseup occurred in another document
+			// iframe mouseup check - mouseup occurred in another document
 			} else if ( !event.which ) {
 				return this._mouseUp( event );
 			}
@@ -5929,14 +5929,14 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 	_blockFrames: function( selector ) {
 		this.webBlocks = this.document.find( selector ).map(function() {
-			var web = $( this );
+			var iframe = $( this );
 
 			return $( "<div>" )
 				.css( "position", "absolute" )
-				.appendTo( web.parent() )
-				.outerWidth( web.outerWidth() )
-				.outerHeight( web.outerHeight() )
-				.offset( web.offset() )[ 0 ];
+				.appendTo( iframe.parent() )
+				.outerWidth(iframe.outerWidth() )
+				.outerHeight(iframe.outerHeight() )
+				.offset(iframe.offset() )[ 0 ];
 		});
 	},
 
