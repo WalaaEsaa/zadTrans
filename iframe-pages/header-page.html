@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Zad trans Center</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/master.css">
+    <link rel="stylesheet" href="../assets/css/animated.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="../index.html" class="logo">
+                            <img src="../assets/images/logo.png">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="../index.html" class="active">Home</a></li>
+                            <li class="submenu "><a href="#services">Services</a>
+                                <!-- ***** drop down option start ***** -->
+                                 <div style="display: list-item; height: 400px;"> 
+                                <ul >
+                                    <li style="z-index:1111; position:relative;"><a href="localization.html"><span
+                                                class="fa fa-arrow-circle-o-right"></span> Localization</a></li>
+                                    <li><a href="copy-writing.html"><span
+                                                class="fa fa-arrow-circle-o-right"></span> Copy Writing </a></li>
+                                    <li><a href="copy-editing.html"><span
+                                                class="fa fa-arrow-circle-o-right"></span> Copy Editing </a></li>
+                                    <li><a href="interpretation.html"><span
+                                                class="fa fa-arrow-circle-o-right"></span> Interpretation</a></li>
+                                    <li><a href="proofreading.html"><span
+                                                class="fa fa-arrow-circle-o-right"></span> Proofreading </a></li>
+                                    <li><a href="subtitle.html"><span
+                                                class="fa fa-arrow-circle-o-right"></span> Subtitle </a></li>
+                                    <li><a href="transcription.html"><span
+                                                class="fa fa-arrow-circle-o-right"></span> Transcription </a></li>
+                                    <li><a href="desktop-publishing.html"><span
+                                                class="fa fa-arrow-circle-o-right"></span> Desktop Publishing</a></li>
+                                    <li><a href="certificated-translation.html"><span
+                                                class="fa fa-arrow-circle-o-right"></span> Certificated translation </a>
+                                    </li>
+
+                                </ul>
+
+                                </div>
+                            </li>
+                            <!-- ***** drop down option end ***** -->
+
+
+                            <li class="scroll-to-section"><a href="#contact" target="footer-sec">Contact Us</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- Scripts -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/owl-carousel.js"></script>
+    <script src="../assets/js/animation.js"></script>
+    <script src="../assets/js/imagesloaded.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    
+    <script>
+        // Acc
+        $(document).on("click", ".naccs .menu div", function () {
+            var numberIndex = $(this).index();
+
+            if (!$(this).is("active")) {
+                $(".naccs .menu div").removeClass("active");
+                $(".naccs ul li").removeClass("active");
+
+                $(this).addClass("active");
+                $(".naccs ul").find("li:eq(" + numberIndex + ")").addClass("active");
+
+                var listItemHeight = $(".naccs ul")
+                    .find("li:eq(" + numberIndex + ")")
+                    .innerHeight();
+                $(".naccs ul").height(listItemHeight + "px");
+            }
+        });
+    </script>
+    </body>
+</html>
